@@ -34,7 +34,7 @@ body {
 .box {
   height: 18vmin;
   width: 18vmin;
-  background-color: #ffffc7;
+  background-color: #c7c79e;
   color: #b0413e;
   font-size: 8vmin;
   border: none;
@@ -50,7 +50,7 @@ body {
   padding: 1rem;
   font-size: 1.25rem;
   background-color: #191913;
-  color: #ffffff;
+  color: #fdfdfd;
   border-radius: 1rem;
   border: none;
 }
@@ -69,7 +69,14 @@ body {
 }
 
 .win-msg {
-  color: #ffffc7;
+  height: 20vmin;
+  width: 55vw;
+  background-color: #c7c79e;
+  color: #383961;
   font-size: 8vmin;
-  padding-bottom: 15px;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

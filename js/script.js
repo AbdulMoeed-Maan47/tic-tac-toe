@@ -5,6 +5,8 @@ const winMsg = document.querySelector(".win-msg");
 const resetBtns = document.querySelectorAll(".reset-btn");
 let turnO = true;
 let clickedCount = 0;
+const colorO = "#b0413e";
+const colorX = "#3157c9";
 
 const winPatterns = [
   [0, 1, 2],
@@ -21,9 +23,11 @@ boxes.forEach((box) => {
   box.addEventListener("click", () => {
     if (turnO) {
       box.innerText = "O";
+      box.style.color = colorO;
       turnO = false;
     } else {
       box.innerText = "X";
+      box.style.color = colorX;
       turnO = true;
     }
     clickedCount++;
@@ -36,6 +40,7 @@ boxes.forEach((box) => {
 resetBtns.forEach((resetBtn) => {
   resetBtn.addEventListener("click", () => {
     turnO = true;
+    clickedCount = 0;
     clearBtns();
     gameScreen.classList.remove("hide");
     winningScreen.classList.add("hide");
@@ -49,17 +54,17 @@ const disableBtns = () => {
   }
 };
 
-const showWinner = (winner) => {
+const showWinner = (winner, color) => {
   gameScreen.classList.add("hide");
   winningScreen.classList.remove("hide");
-  winMsg.innerText = `Congratulations! Winner is Player${winner}`;
+  winMsg.innerHTML = `Congratulations! Winner is Player<spam style='color:${color}'>${winner}</spam>`;
 };
 
-const showDraw = () =>{
+const showDraw = () => {
   gameScreen.classList.add("hide");
   winningScreen.classList.remove("hide");
   winMsg.innerText = `It's a Draw!`;
-}
+};
 
 const checkWinner = () => {
   let winner = null;
@@ -70,13 +75,14 @@ const checkWinner = () => {
 
     if (pos1Val !== "" && pos2Val !== "" && pos3Val !== "") {
       if (pos1Val === pos2Val && pos2Val === pos3Val) {
-        winner = pos1Val
+        winner = pos1Val;
+        let color = winner === "O" ? colorO : colorX;
         disableBtns();
-        showWinner(winner);
+        showWinner(winner, color);
       }
     }
   }
-  if (!winner && clickedCount === 9){
+  if (!winner && clickedCount === 9) {
     showDraw();
   }
 };

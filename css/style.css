@@ -39,3 +39,16 @@ body {
   font-size: 8vmin;
   color: #b0413e;
 }
+
+.resetBtn {
+  text-align: center;
+}
+
+#resetBtn {
+  padding: 1rem;
+  font-size: 1.25rem;
+  background-color: #191913;
+  color: #ffffff;
+  border-radius: 1rem;
+  border: none;
+}

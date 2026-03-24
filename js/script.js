@@ -1,4 +1,7 @@
 const boxes = document.querySelectorAll(".box");
+const resetContainer = document.querySelector(".reset-container");
+const winningContainer = document.querySelector(".winning-container");
+const winMsg = document.querySelector(".win-msg");
 let turnO = true;
 
 const winPatterns = [
@@ -35,6 +38,12 @@ const disableBtns = () => {
   }
 };
 
+const showWinner = (winner) => {
+  resetContainer.classList.add("hide");
+  winningContainer.classList.remove("hide");
+  winMsg.innerText = `Congratulations! Winner is Player${winner}`;
+};
+
 const checkWinner = () => {
   for (let winPattern of winPatterns) {
     let pos0Val = boxes[winPattern[0]].innerText;
@@ -44,6 +53,7 @@ const checkWinner = () => {
     if (pos0Val !== "" && pos1Val !== "" && pos2Val !== "") {
       if (pos0Val === pos1Val && pos1Val === pos2Val) {
         disableBtns();
+        showWinner(pos0Val);
         console.log(`Winner: Player${pos0Val}`);
       }
     }

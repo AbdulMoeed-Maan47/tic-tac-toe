@@ -42,11 +42,30 @@ body {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
 }
 
-.resetBtn {
+.bottom-section {
   text-align: center;
 }
 
-#resetBtn {
+.reset-btn {
+  padding: 1rem;
+  font-size: 1.25rem;
+  background-color: #191913;
+  color: #ffffff;
+  border-radius: 1rem;
+  border: none;
+}
+
+.hide {
+  display: none;
+}
+
+.win-msg {
+  color: #191913;
+  font-size: 6vmin;
+  padding-bottom: 15px;
+}
+
+#new-btn {
   padding: 1rem;
   font-size: 1.25rem;
   background-color: #191913;

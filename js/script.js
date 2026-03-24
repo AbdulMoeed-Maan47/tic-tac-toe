@@ -4,6 +4,7 @@ const winningScreen = document.querySelector(".winning-screen");
 const winMsg = document.querySelector(".win-msg");
 const resetBtns = document.querySelectorAll(".reset-btn");
 let turnO = true;
+let clickedCount = 0;
 
 const winPatterns = [
   [0, 1, 2],
@@ -16,7 +17,7 @@ const winPatterns = [
   [6, 7, 8],
 ];
 
-for (let box of boxes) {
+boxes.forEach((box) => {
   box.addEventListener("click", () => {
     if (turnO) {
       box.innerText = "O";
@@ -25,13 +26,14 @@ for (let box of boxes) {
       box.innerText = "X";
       turnO = true;
     }
+    clickedCount++;
     box.disabled = true;
 
     checkWinner();
   });
-}
+});
 
-for (let resetBtn of resetBtns) {
+resetBtns.forEach((resetBtn) => {
   resetBtn.addEventListener("click", () => {
     turnO = true;
     clearBtns();
@@ -39,7 +41,7 @@ for (let resetBtn of resetBtns) {
     winningScreen.classList.add("hide");
     console.clear();
   });
-}
+});
 
 const disableBtns = () => {
   for (let box of boxes) {
@@ -53,7 +55,14 @@ const showWinner = (winner) => {
   winMsg.innerText = `Congratulations! Winner is Player${winner}`;
 };
 
+const showDraw = () =>{
+  gameScreen.classList.add("hide");
+  winningScreen.classList.remove("hide");
+  winMsg.innerText = `It's a Draw!`;
+}
+
 const checkWinner = () => {
+  let winner = null;
   for (let winPattern of winPatterns) {
     let pos1Val = boxes[winPattern[0]].innerText;
     let pos2Val = boxes[winPattern[1]].innerText;
@@ -61,10 +70,14 @@ const checkWinner = () => {
 
     if (pos1Val !== "" && pos2Val !== "" && pos3Val !== "") {
       if (pos1Val === pos2Val && pos2Val === pos3Val) {
+        winner = pos1Val
         disableBtns();
-        showWinner(pos1Val);
+        showWinner(winner);
       }
     }
+  }
+  if (!winner && clickedCount === 9){
+    showDraw();
   }
 };
 

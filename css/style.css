@@ -42,7 +42,7 @@ body {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
 }
 
-.bottom-section {
+.reset-container {
   text-align: center;
 }
 
@@ -55,21 +55,21 @@ body {
   border: none;
 }
 
+.winning-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
 .hide {
   display: none;
 }
 
 .win-msg {
-  color: #191913;
-  font-size: 6vmin;
+  color: #ffffc7;
+  font-size: 8vmin;
   padding-bottom: 15px;
-}
-
-#new-btn {
-  padding: 1rem;
-  font-size: 1.25rem;
-  background-color: #191913;
-  color: #ffffff;
-  border-radius: 1rem;
-  border: none;
 }

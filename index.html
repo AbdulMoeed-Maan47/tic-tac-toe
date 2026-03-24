@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header>
+    <div class="game-screen">
       <h1 class="heading">Tic Tac Toe</h1>
-    </header>
-    <main>
       <div class="container">
         <div class="game">
           <button class="box"></button>
@@ -24,16 +22,14 @@
           <button class="box"></button>
         </div>
       </div>
-      <div class="bottom-section">
-        <div class="reset-container">
-          <button class="reset-btn">Reset Game</button>
-        </div>
-        <div class="winning-container hide">
-          <p class="win-msg">Winner</p>
-          <button class="reset-btn">New Game</button>
-        </div>
+      <div class="reset-container">
+        <button class="reset-btn">Reset Game</button>
       </div>
-    </main>
+    </div>
+    <div class="winning-screen hide">
+      <p class="win-msg"></p>
+      <button class="reset-btn">New Game</button>
+    </div>
     <script src="js/script.js"></script>
   </body>
 </html>

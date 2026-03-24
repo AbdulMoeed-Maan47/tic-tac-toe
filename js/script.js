@@ -2,6 +2,7 @@ const boxes = document.querySelectorAll(".box");
 const resetContainer = document.querySelector(".reset-container");
 const winningContainer = document.querySelector(".winning-container");
 const winMsg = document.querySelector(".win-msg");
+const resetBtns = document.querySelectorAll(".reset-btn");
 let turnO = true;
 
 const winPatterns = [
@@ -32,6 +33,16 @@ for (let box of boxes) {
   });
 }
 
+for (let resetBtn of resetBtns) {
+  resetBtn.addEventListener("click", () => {
+    turnO = true;
+    clearBtns();
+    resetContainer.classList.remove("hide");
+    winningContainer.classList.add("hide");
+    console.clear();
+  });
+}
+
 const disableBtns = () => {
   for (let box of boxes) {
     box.disabled = true;
@@ -57,5 +68,12 @@ const checkWinner = () => {
         console.log(`Winner: Player${pos0Val}`);
       }
     }
+  }
+};
+
+const clearBtns = () => {
+  for (let box of boxes) {
+    box.innerText = "";
+    box.disabled = false;
   }
 };
